@@ -1,0 +1,274 @@
+{
+    "version": 3,
+    "extra_config": {
+        "github_com/devopsfaith/krakend-cors": {
+            "allow_origins": ["http://localhost:3000","*"],
+            "allow_headers": ["Origin", "Authorization", "Content-Type", "Accept", "X-Auth-Token", "Referer", "User-Agent","User"],
+            "expose_headers": ["Content-Type", "Content-Length"],
+            "allow_credentials": true,
+            "allow_methods": ["GET", "HEAD", "POST","DELETE","PUT"]
+        }
+      },
+    "endpoints": [
+        {
+            "endpoint": "/auth/signin",
+            "backend": [
+                {
+                    "url_pattern": "/api/auth/signin",
+                    "method": "POST",
+                    "host": [
+                        "http://192.168.18.54:6087"
+                    ]
+                }
+            ],
+            "method": "POST"
+        },
+        {
+            "endpoint": "/auth/signup",
+            "method": "POST",
+            "backend": [
+                {
+                    "url_pattern": "/api/auth/signup",
+                    "method": "POST",
+                    "host": [
+                        "http://192.168.18.54:6087"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/auth/validateToken",
+            "method": "POST",
+            "input_headers": ["Authorization","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/auth/validateToken",
+                    "method": "POST",
+                    "host": [
+                        "http://192.168.18.54:6087"
+                    ],
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/auth/logout",
+            "method": "GET",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/auth/logout",
+                    "method": "GET",
+                    "host": [
+                        "http://192.168.18.54:6087"
+                    ],
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/products/list",
+            "method":"GET",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/products",
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method": "GET",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ]
+                }
+            ]
+        },
+        {
+            "endpoint": "/products/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/products/{code}",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"GET"
+                }
+            ],
+            "method": "GET"
+        },
+        {
+            "endpoint": "/products",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/products",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"POST"
+                }
+            ],
+            "method": "POST"
+        },
+        {
+            "endpoint": "/products/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/products/{code}",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"PUT"
+                }
+            ],
+            "method": "PUT"
+        },
+        {
+            "endpoint": "/products/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/products/{code}",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"DELETE"
+                }
+            ],
+            "method": "DELETE"
+        },
+        {
+            "endpoint": "/categories",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"GET"
+                }
+            ],
+            "method": "GET"
+        },
+        {
+            "endpoint": "/categories/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories/{code}",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"GET"
+                }
+            ],
+            "method": "GET"
+        },
+        {
+            "endpoint": "/categories/map",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories/map",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"GET"
+                }
+            ],
+            "method": "GET"
+        },
+        {
+            "endpoint": "/categories",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"POST"
+                }
+            ],
+            "method": "POST"
+        },
+        {
+            "endpoint": "/categories/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories/{code}",
+                    "headers_to_pass": [
+                        "Authorization",
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"PUT"
+                }
+            ],
+            "method": "PUT"
+        },
+        {
+            "endpoint": "/categories/{code}",
+            "input_headers": ["Authorization", "Content-Type","User"],
+            "backend": [
+                {
+                    "url_pattern": "/api/categories/{code}",
+                    "headers_to_pass": [
+                        "Authorization",    
+                        "User"
+                    ],
+                    "host": [
+                        "http://192.168.18.54:6088"
+                    ],
+                    "method":"DELETE"
+                }
+            ],
+            "method": "DELETE"
+        }
+    ]
+}
